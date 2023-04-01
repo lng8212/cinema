@@ -1,0 +1,97 @@
+<resources>
+    <string name="app_name" translatable="false">Cinema</string>
+    <string name="home">Home</string>
+    <string name="search">Search</string>
+    <string name="download">Download</string>
+    <string name="profile">Profile</string>
+    <string name="Cinema">Cinema</string>
+    <string name="enter_number_signup">Enter your registered\nPhone Number to Sign Up</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="i_have_account">I already have an account?</string>
+    <string name="login">Login</string>
+    <string name="or_sign_up_with">Or Sign up with</string>
+    <string name="lets_get_started">Let\'s get started</string>
+    <string name="latest_movies_here">The latest movies and series\nare here</string>
+    <string name="full_name">Full Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="agree_to_terms">I agree to the <font color='#12CDD9'>Terms and Services</font> \nand <font color='#12CDD9'>Privacy Policy</font></string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="hello_with_comma">Hello, %1$s</string>
+    <string name="lets_stream_favorite">Let\'s stream your favorite movie</string>
+    <string name="search_a_title">Search a title..</string>
+    <string name="categories">Categories</string>
+    <string name="most_popular">Most popular</string>
+    <string name="see_all">See All</string>
+    <string name="play">Play</string>
+    <string name="story_line">Story Line</string>
+    <string name="cast_and_crew">Cast and Crew</string>
+    <string name="share_to">Share to</string>
+    <string name="minutes">%1$s Minutes</string>
+    <string name="wishlist">Wishlist</string>
+    <string name="actors">Actors</string>
+    <string name="movie_related">Movie Related</string>
+    <string name="premium">Premium</string>
+    <string name="movie">Movie</string>
+    <string name="cant_find_movie">We Are Sorry, We Can Not Find The Movie :(</string>
+    <string name="find_your_movie">Find your movie by Type title, categories,years,etc</string>
+    <string name="today">Today</string>
+    <string name="recommended_for_you">Recommended for you</string>
+    <string name="trailer">Trailer</string>
+    <string name="release_date">Release Date:</string>
+    <string name="synopsis">Synopsis</string>
+    <string name="new_movies_coming">New movies are coming for you, Download Now!</string>
+    <string name="account">Account</string>
+    <string name="member">Member</string>
+    <string name="change_password">Change Password</string>
+    <string name="general">General</string>
+    <string name="notification">Notification</string>
+    <string name="language">Language</string>
+    <string name="country">Country</string>
+    <string name="more">More</string>
+    <string name="legal_and_policies">Legal and Policies</string>
+    <string name="help_feedback"><![CDATA[Help & Feedback]]></string>
+    <string name="about_us">About Us</string>
+    <string name="log_out">Log Out</string>
+    <string name="terms">Terms</string>
+    <string name="terms_of_app">The following terminology applies to these Terms and Conditions, Privacy Statement and Disclaimer Notice and any or all Agreements: Client, You and Your refers to you, the person accessing this website and accepting the Company’s terms and conditions.\n\nThe Company, Ourselves, We, Our and Us, refers to our Company. Party, Parties, or Us, refers to both the Client and ourselves, or either the Client or ourselves. All terms refer to the offer, acceptance and consideration of payment necessary to undertake the process of our assistance to the Client in the most appropriate manner, whether by formal meetings of a fixed duration, or any other means, for the express purpose of meeting.</string>
+    <string name="changes_to_service">Changes to the Service and/or Terms:</string>
+    <string name="privacy_policy">Privacy Policy</string>
+    <string name="email">Email</string>
+    <string name="phone_number">Phone Number</string>
+    <string name="save_changes">Save Changes</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="are_you_sure">Are you sure ?</string>
+    <string name="are_you_sure_subtext">Ullamcorper imperdiet urna id non sed est sem. Rhoncus amet, enim purus gravida donec aliquet.</string>
+    <string name="cancel">Cancel</string>
+    <string name="the_biggest_streaming">The biggest international  and local film streaming</string>
+    <string name="onboarding_text">Semper in cursus magna et eu varius nunc adipiscing. Elementum justo, laoreet id sem semper parturient.</string>
+    <string name="offers_ad_free">Offers ad-free viewing of \n high quality</string>
+    <string name="brings_together">Our service brings together \nyour favorite series</string>
+    <string name="there_is_no_movie">There is no movie yet!</string>
+    <string name="most_popular_movie">Most Popular Movie</string>
+    <string name="recommended">Recommended</string>
+
+    <string name="request_id_token" translatable="false">102396043049-kbnkiqh9k64728l97iodi8047dlhic2e.apps.googleusercontent.com</string>
+    <string name="facebook_app_id" translatable="false">1195947151126037</string>
+    <string name="fb_login_protocol_scheme" translatable="false">fb1195947151126037</string>
+    <string name="facebook_client_token" translatable="false">a19fc09beb470496cdd541d0bea667d3</string>
+    <string name="login_success">Login success</string>
+    <string name="facebook_login_failed">Facebook login failed</string>
+    <string name="premium_member">Premium Member</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="on_date">On %1$s</string>
+    <string name="top_rated">Top Rated</string>
+    <string name="suggested_languages">Suggested Languages</string>
+    <string name="logged_out">Logged out</string>
+    <string name="account_created">Account created</string>
+    <string name="hi_comma">Hi,</string>
+    <string name="welcome_back">Welcome back! Please \nenter your details.</string>
+    <string name="tv">Tv</string>
+    <string name="episode">Episodes</string>
+    <string name="season">Season %1$d</string>
+    <string name="added_to_wishlist">Added to wishlist !</string>
+    <string name="removed_from_wishlist">Removed from wishlist !</string>
+    <string name="invalid_email_format">Invalid Email Format</string>
+
+</resources>
