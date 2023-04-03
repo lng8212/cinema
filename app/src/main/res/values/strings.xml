@@ -5,7 +5,6 @@
     <string name="download">Download</string>
     <string name="profile">Profile</string>
     <string name="Cinema">Cinema</string>
-    <string name="enter_number_signup">Enter your registered\nPhone Number to Sign Up</string>
     <string name="sign_up">Sign Up</string>
     <string name="i_have_account">I already have an account?</string>
     <string name="login">Login</string>
@@ -63,35 +62,31 @@
     <string name="edit_profile">Edit Profile</string>
     <string name="are_you_sure">Are you sure ?</string>
     <string name="are_you_sure_subtext">Ullamcorper imperdiet urna id non sed est sem. Rhoncus amet, enim purus gravida donec aliquet.</string>
-    <string name="cancel">Cancel</string>
-    <string name="the_biggest_streaming">The biggest international  and local film streaming</string>
-    <string name="onboarding_text">Semper in cursus magna et eu varius nunc adipiscing. Elementum justo, laoreet id sem semper parturient.</string>
-    <string name="offers_ad_free">Offers ad-free viewing of \n high quality</string>
-    <string name="brings_together">Our service brings together \nyour favorite series</string>
-    <string name="there_is_no_movie">There is no movie yet!</string>
-    <string name="most_popular_movie">Most Popular Movie</string>
-    <string name="recommended">Recommended</string>
+    <string name="cancel">Huỷ</string>
+    <string name="the_biggest_streaming">Nền tảng stream những bộ phim trong nước và quốc tế lớn nhất</string>
+    <string name="onboarding_text">Sempre in cursus magna et eu varius nunc adipiscing. Elementum justo, laoreet id sem semper parturient.</string>
+    <string name="offers_ad_free">Cung cấp chế độ xem \n chất lượng cao không có quảng cáo</string>
+    <string name="brings_together">Dịch vụ của chúng tôi tập hợp \n những bộ phim yêu thích của bạn</string>
+    <string name="there_is_no_movie">Chưa có phim!</string>
+    <string name="most_popular_movie">Phim nổi tiếng nhất</string>
+    <string name="recommended">Được đề xuất</string>
 
     <string name="request_id_token" translatable="false">102396043049-kbnkiqh9k64728l97iodi8047dlhic2e.apps.googleusercontent.com</string>
-    <string name="facebook_app_id" translatable="false">1195947151126037</string>
-    <string name="fb_login_protocol_scheme" translatable="false">fb1195947151126037</string>
-    <string name="facebook_client_token" translatable="false">a19fc09beb470496cdd541d0bea667d3</string>
-    <string name="login_success">Login success</string>
-    <string name="facebook_login_failed">Facebook login failed</string>
-    <string name="premium_member">Premium Member</string>
-    <string name="clear_cache">Clear Cache</string>
-    <string name="on_date">On %1$s</string>
-    <string name="top_rated">Top Rated</string>
-    <string name="suggested_languages">Suggested Languages</string>
-    <string name="logged_out">Logged out</string>
-    <string name="account_created">Account created</string>
-    <string name="hi_comma">Hi,</string>
-    <string name="welcome_back">Welcome back! Please \nenter your details.</string>
-    <string name="tv">Tv</string>
-    <string name="episode">Episodes</string>
-    <string name="season">Season %1$d</string>
-    <string name="added_to_wishlist">Added to wishlist !</string>
-    <string name="removed_from_wishlist">Removed from wishlist !</string>
-    <string name="invalid_email_format">Invalid Email Format</string>
+    <string name="login_success">Đăng nhập thành công</string>
+    <string name="premium_member">Thành viên Premium</string>
+    <string name="clear_cache">Xóa bộ nhớ cache</string>
+    <string name="on_date">Vào %1$s</string>
+    <string name="top_rated">Xếp hạng cao nhất</string>
+    <string name="suggested_languages">Ngôn ngữ được đề xuất</string>
+    <string name="logged_out">Đã đăng xuất</string>
+    <string name="account_created">Tài khoản được đã được tạo</string>
+    <string name="hi_comma">Xin chào,</string>
+    <string name="welcome_back">Chào mừng trở lại! Vui lòng nhập thông tin chi tiết của bạn.</string>
+    <string name="tv">Tivi</string>
+    <string name="episode">Tập</string>
+    <string name="season">Phần %1$d</string>
+    <string name="added_to_wishlist">Đã thêm vào danh sách yêu thích!</string>
+    <string name="removed_from_wishlist">Đã xóa khỏi danh sách yêu thích!</string>
+    <string name="invalid_email_format">Định dạng email không hợp lệ</string>
 
 </resources>

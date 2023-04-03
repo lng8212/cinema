@@ -10,6 +10,7 @@ import com.longkd.cinema.core.fragment.ToolbarConfiguration
 import com.longkd.cinema.databinding.FragmentSignupBinding
 import com.longkd.cinema.utils.viewbinding.viewBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.longkd.cinema.utils.showTextToast
 
 class SignupFragment : BaseFragment(R.layout.fragment_signup) {
 
@@ -58,7 +59,7 @@ class SignupFragment : BaseFragment(R.layout.fragment_signup) {
                 setStartDestinationToHome()
                 navToHomeFragment()
             }.addOnFailureListener { exception ->
-                Toast.makeText(requireContext(), exception.toString(), Toast.LENGTH_SHORT).show()
+                context?.showTextToast(exception.toString())
             }
         }
     }

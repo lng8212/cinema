@@ -3,7 +3,7 @@ package com.longkd.cinema
 import android.content.Context
 import com.longkd.cinema.model.Genre
 import com.longkd.cinema.utils.ENGLISH
-import com.longkd.cinema.utils.TURKISH
+import com.longkd.cinema.utils.VIETNAMESE
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.Types
@@ -30,8 +30,8 @@ fun getGenresList(context: Context, currentLanguage: String): List<Genre>? {
         ENGLISH -> {
             "movie_genres.json"
         }
-        TURKISH -> {
-            "movie_genres_tr.json"
+        VIETNAMESE -> {
+            "movie_genres_vi.json"
         }
         else -> {
             "movie_genres.json"

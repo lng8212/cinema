@@ -19,7 +19,7 @@ android {
 
     defaultConfig {
         applicationId "com.longkd.cinema"
-        minSdk 24
+        minSdk 21
         targetSdk 33
         versionCode 2
         versionName "1.1"
@@ -131,10 +131,6 @@ dependencies {
 
     //Google Auth
     implementation 'com.google.android.gms:play-services-auth:20.4.1'
-
-    //Facebook Auth
-    implementation 'com.facebook.android:facebook-login:latest.release'
-    implementation 'com.facebook.android:facebook-android-sdk:latest.release'
 
     implementation 'com.github.tunahanbozkurt:ExpandableBottomNavigationBar:1.0'
 

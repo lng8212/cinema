@@ -1,9 +1,9 @@
 package com.longkd.cinema.utils
 
 const val ENGLISH = "en"
-const val TURKISH = "tr"
+const val VIETNAMESE = "vi"
 
 val supportedLanguages = listOf(
     ENGLISH,
-    TURKISH
+    VIETNAMESE
 )
