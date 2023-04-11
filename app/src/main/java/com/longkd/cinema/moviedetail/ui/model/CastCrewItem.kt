@@ -5,6 +5,7 @@ import com.longkd.cinema.utils.list.RecyclerListItem
 data class CastCrewItem(
     val id: Int,
     val name: String,
+    val character: String?,
     val profilePathUrl: String?,
     val job: String
 ) : RecyclerListItem {

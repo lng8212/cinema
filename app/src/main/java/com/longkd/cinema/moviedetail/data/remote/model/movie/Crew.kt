@@ -21,6 +21,7 @@ fun Crew.mapToCastCrewPerson(): CastCrewPerson {
         id = id,
         job = job,
         name = name,
+        character = null,
         profile_path = profile_path
     )
 }

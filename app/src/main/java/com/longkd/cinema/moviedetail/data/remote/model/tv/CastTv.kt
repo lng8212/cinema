@@ -21,6 +21,7 @@ fun CastTv.mapToCastCrewPerson():CastCrewPerson{
         id = id,
         job = known_for_department,
         name = name,
+        character = character,
         profile_path = profile_path
     )
 }

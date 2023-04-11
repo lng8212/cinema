@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.viewModels
+import androidx.recyclerview.widget.DividerItemDecoration
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.longkd.cinema.ImagesConfigData
 import com.longkd.cinema.R
 import com.longkd.cinema.core.fragment.BaseFragment
@@ -16,8 +19,6 @@ import com.longkd.cinema.utils.ShareDialog
 import com.longkd.cinema.utils.lifecycle.observe
 import com.longkd.cinema.utils.showTextToast
 import com.longkd.cinema.utils.viewbinding.viewBinding
-import com.bumptech.glide.Glide
-import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
 
@@ -36,7 +37,9 @@ class MovieDetailFragment : BaseFragment(R.layout.fragment_movie_detail) {
 
     private val viewModel by viewModels<MovieDetailViewModel>()
 
-    private val castCrewAdapter = CastCrewAdapter()
+    private val castCrewAdapter = CastCrewAdapter {
+        navToPersonFragment(it)
+    }
 
     private var isWishListed = false
 
@@ -147,6 +150,10 @@ class MovieDetailFragment : BaseFragment(R.layout.fragment_movie_detail) {
                 isMovie = true
             )
         )
+    }
+
+    private fun navToPersonFragment(personId: Int) {
+        nav(MovieDetailFragmentDirections.actionMovieDetailFragmentToPersonFragment(personId))
     }
 
 }

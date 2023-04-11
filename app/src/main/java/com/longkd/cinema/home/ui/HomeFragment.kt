@@ -5,6 +5,10 @@ import android.view.View
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayout
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.longkd.cinema.GenresData
 import com.longkd.cinema.R
 import com.longkd.cinema.core.fragment.BaseFragment
@@ -14,10 +18,6 @@ import com.longkd.cinema.ui.MoviesBasicCardAdapter
 import com.longkd.cinema.utils.QUERY_SEARCH_DELAY
 import com.longkd.cinema.utils.lifecycle.observe
 import com.longkd.cinema.utils.viewbinding.viewBinding
-import com.bumptech.glide.Glide
-import com.google.android.material.tabs.TabLayout
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -43,9 +43,13 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
             navToMovieDetailFragment(movieBasicCardItem.id)
         }
 
+    private val carouselAdapterListener = MoviesCarouselAdapter.MoviesCarouselAdapterListener { carouselMovieItem ->
+        navToMovieDetailFragment(carouselMovieItem.id)
+    }
+
     private val topRatedMoviesAdapter = MoviesBasicCardAdapter(topRatedMoviesAdapterListener)
 
-    private val upcomingMoviesCarouselAdapter = MoviesCarouselAdapter()
+    private val upcomingMoviesCarouselAdapter = MoviesCarouselAdapter(carouselAdapterListener)
 
     private val popularMoviesAdapter = MoviesBasicCardAdapter(popularMoviesAdapterListener)
 

@@ -33,8 +33,7 @@ class MovieTrailerFragment : BaseFragment(R.layout.fragment_movie_trailer) {
     private val toolbarConfiguration = ToolbarConfiguration(
         titleResId = R.string.trailer,
         startIconResId = R.drawable.ic_arrow_back,
-        startIconClick = ::navBack,
-        endIconResId = R.drawable.ic_wishlist
+        startIconClick = ::navBack
     )
 
     override val fragmentConfiguration = FragmentConfiguration(toolbarConfiguration)

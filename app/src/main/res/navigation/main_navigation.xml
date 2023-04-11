@@ -67,6 +67,9 @@
         <action
             android:id="@+id/action_movieDetailFragment_to_movieTrailerFragment"
             app:destination="@id/movieTrailerFragment" />
+        <action
+            android:id="@+id/action_movieDetailFragment_to_personFragment"
+            app:destination="@id/personFragment" />
     </fragment>
     <fragment
         android:id="@+id/wishListFragment"
@@ -191,5 +194,13 @@
         <action
             android:id="@+id/action_tvShowDetailFragment_to_movieTrailerFragment"
             app:destination="@id/movieTrailerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/personFragment"
+        android:name="com.longkd.cinema.person.ui.PersonFragment"
+        android:label="PersonFragment" >
+        <argument
+            android:name="personId"
+            app:argType="integer" />
     </fragment>
 </navigation>

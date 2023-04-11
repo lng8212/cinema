@@ -39,7 +39,9 @@ class TvShowDetailFragment : BaseFragment(R.layout.fragment_tv_show_detail) {
 
     private var isWishListed = false
 
-    private val castCrewAdapter = CastCrewAdapter()
+    private val castCrewAdapter = CastCrewAdapter(){
+
+    }
 
     private val episodesAdapter = EpisodesAdapter()
 
