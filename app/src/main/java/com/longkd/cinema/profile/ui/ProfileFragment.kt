@@ -21,6 +21,8 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
 
     private val binding by viewBinding(FragmentProfileBinding::bind)
 
+    private var deleteAccountDialog: DeleteAccountDialog? = null
+
     private lateinit var auth: FirebaseAuth
 
     private var logoutDialog: LogoutDialog? = null
@@ -32,6 +34,20 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
         context?.showTextToast(getString(R.string.logged_out))
         setStartDestinationToIntro()
         nav(ProfileFragmentDirections.actionProfileFragmentToIntroFragment())
+
+    }
+
+    private val deleteAccountListener = DeleteAccountDialog.DeleteAccountListener {
+        showProgressDialog()
+        auth.currentUser?.delete()?.addOnSuccessListener {
+            hideProgressDialog()
+            context?.showTextToast(getString(R.string.account_deleted))
+            setStartDestinationToIntro()
+            nav(ProfileFragmentDirections.actionProfileFragmentToIntroFragment())
+        }?.addOnFailureListener {
+            hideProgressDialog()
+            context?.showTextToast(getString(R.string.please_relogin))
+        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -61,6 +77,9 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
             logoutButton.setOnClickListener {
                 showLogoutDialog()
             }
+            deleteMyAccountButton.setOnClickListener {
+                deleteAccountDialog()
+            }
             if (!currentUser?.email.isNullOrEmpty()) {
                 emailTextView.text = currentUser?.email
             } else {
@@ -72,6 +91,11 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
                 .centerCrop().placeholder(R.drawable.ic_person_24)
                 .into(personImageView)
         }
+    }
+
+    private fun deleteAccountDialog() {
+        deleteAccountDialog = DeleteAccountDialog(requireActivity(), deleteAccountListener)
+        deleteAccountDialog?.showDialog()
     }
 
     private fun showLogoutDialog() {

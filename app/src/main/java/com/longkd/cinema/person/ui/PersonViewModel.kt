@@ -30,7 +30,7 @@ class PersonViewModel @Inject constructor(
         get() = _personState
 
 
-    fun getPerson(personId: Int) {
+    private fun getPerson(personId: Int) {
         viewModelScope.launch {
             getPersonUseCase.invoke(personId).collectLatest { result ->
                 when (result) {

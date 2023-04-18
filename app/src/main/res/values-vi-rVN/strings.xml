@@ -88,5 +88,8 @@
     <string name="added_to_wishlist">Đã thêm vào danh sách yêu thích!</string>
     <string name="removed_from_wishlist">Đã xóa khỏi danh sách yêu thích!</string>
     <string name="invalid_email_format">Định dạng email không hợp lệ</string>
-
+    <string name="delete_my_account">Xoá tài khoản</string>
+    <string name="your_data_deleted">Tài khoản và dữ liệu của bạn sẽ bị xoá.\n Bạn có chắc chắn không?</string>
+    <string name="account_deleted">Tài khoản của bạn đã bị xoá!</string>
+    <string name="please_relogin">Hãy đăng nhập lại!</string>
 </resources>
