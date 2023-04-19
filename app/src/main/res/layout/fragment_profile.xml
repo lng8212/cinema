@@ -83,126 +83,6 @@
 
         </com.google.android.material.card.MaterialCardView>
 
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/premiumCardView"
-            android:layout_width="match_parent"
-            android:layout_height="@dimen/_112dp"
-            android:layout_marginHorizontal="@dimen/_24dp"
-            android:layout_marginTop="@dimen/_24dp"
-            app:cardCornerRadius="@dimen/_16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/profileCardView"
-            app:strokeColor="@color/primary_soft">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@drawable/bg_premium">
-
-                <com.google.android.material.button.MaterialButton
-                    android:id="@+id/premiumIcon"
-                    style="@style/Widget.Material3.Button.IconButton"
-                    android:layout_width="@dimen/_40dp"
-                    android:layout_height="@dimen/_40dp"
-                    android:layout_marginStart="@dimen/_24dp"
-                    android:layout_marginTop="@dimen/_24dp"
-                    app:icon="@drawable/ic_premium"
-                    app:iconGravity="textEnd"
-                    app:iconSize="@dimen/_40dp"
-                    app:iconTint="@null"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <TextView
-                    android:id="@+id/premiumMemberText"
-                    style="@style/text_h5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8dp"
-                    android:text="@string/premium_member"
-                    app:layout_constraintStart_toEndOf="@+id/premiumIcon"
-                    app:layout_constraintTop_toTopOf="@+id/premiumIcon" />
-
-                <TextView
-                    android:id="@+id/newMoviesComing"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_8dp"
-                    android:layout_marginTop="@dimen/_8dp"
-                    android:maxWidth="@dimen/_232dp"
-                    android:text="@string/new_movies_coming"
-                    android:textColor="@color/text_white"
-                    app:layout_constraintStart_toEndOf="@+id/premiumIcon"
-                    app:layout_constraintTop_toBottomOf="@+id/premiumMemberText" />
-
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
-
-        <com.google.android.material.card.MaterialCardView
-            android:id="@+id/accountCardView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_24dp"
-            android:layout_marginTop="@dimen/_24dp"
-            android:backgroundTint="@color/primary_dark"
-            app:cardCornerRadius="@dimen/_16dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/premiumCardView"
-            app:strokeColor="@color/primary_soft">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-
-                <TextView
-                    android:id="@+id/accountText"
-                    style="@style/text_h3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="@dimen/_16dp"
-                    android:layout_marginTop="@dimen/_24dp"
-                    android:text="@string/account"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <com.longkd.cinema.customviews.CustomProfileButton
-                    android:id="@+id/memberButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_72dp"
-
-                    android:drawableEnd="@drawable/ic_arrow_right"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/accountText"
-                    app:startIconDrawable="@drawable/ic_profile_blue"
-                    app:text="@string/member" />
-
-                <View
-                    android:id="@+id/divider"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1dp"
-                    android:layout_marginHorizontal="@dimen/_32dp"
-                    android:background="@color/primary_soft"
-                    app:layout_constraintTop_toBottomOf="@id/memberButton" />
-
-                <com.longkd.cinema.customviews.CustomProfileButton
-                    android:id="@+id/changePasswordButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_72dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider"
-                    app:startIconDrawable="@drawable/ic_padlock"
-                    app:text="@string/change_password" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </com.google.android.material.card.MaterialCardView>
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/generalCardView"
@@ -214,7 +94,7 @@
             app:cardCornerRadius="@dimen/_16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/accountCardView"
+            app:layout_constraintTop_toBottomOf="@id/profileCardView"
             app:strokeColor="@color/primary_soft">
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -261,45 +141,6 @@
                     app:layout_constraintTop_toBottomOf="@id/divider1"
                     app:startIconDrawable="@drawable/ic_globe"
                     app:text="@string/language" />
-
-                <View
-                    android:id="@+id/divider2"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1dp"
-                    android:layout_marginHorizontal="@dimen/_32dp"
-                    android:background="@color/primary_soft"
-                    app:layout_constraintTop_toBottomOf="@id/languageButton" />
-
-                <com.longkd.cinema.customviews.CustomProfileButton
-                    android:id="@+id/countryButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_72dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider2"
-                    app:startIconDrawable="@drawable/ic_flag"
-                    app:text="@string/country" />
-
-                <View
-                    android:id="@+id/divider3"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1dp"
-                    android:layout_marginHorizontal="@dimen/_32dp"
-                    android:background="@color/primary_soft"
-                    app:layout_constraintTop_toBottomOf="@id/countryButton" />
-
-                <com.longkd.cinema.customviews.CustomProfileButton
-                    android:id="@+id/deleteMyAccountButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_72dp"
-                    app:textColor="@color/secondary_red"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider3"
-                    app:startIconDrawable="@drawable/ic_trashbin"
-                    app:text="@string/delete_my_account" />
-
-
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
@@ -342,42 +183,6 @@
                     app:layout_constraintTop_toBottomOf="@id/moreText"
                     app:startIconDrawable="@drawable/ic_shield"
                     app:text="@string/legal_and_policies" />
-
-                <View
-                    android:id="@+id/divider4"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1dp"
-                    android:layout_marginHorizontal="@dimen/_32dp"
-                    android:background="@color/primary_soft"
-                    app:layout_constraintTop_toBottomOf="@id/legalPoliciesButton" />
-
-                <com.longkd.cinema.customviews.CustomProfileButton
-                    android:id="@+id/helpFeedbackButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_72dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider4"
-                    app:startIconDrawable="@drawable/ic_question"
-                    app:text="@string/help_feedback" />
-
-                <View
-                    android:id="@+id/divider5"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_1dp"
-                    android:layout_marginHorizontal="@dimen/_32dp"
-                    android:background="@color/primary_soft"
-                    app:layout_constraintTop_toBottomOf="@id/helpFeedbackButton" />
-
-                <com.longkd.cinema.customviews.CustomProfileButton
-                    android:id="@+id/aboutUsButton"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/_72dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/divider5"
-                    app:startIconDrawable="@drawable/ic_info"
-                    app:text="@string/about_us" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 

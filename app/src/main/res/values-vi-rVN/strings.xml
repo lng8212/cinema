@@ -48,7 +48,7 @@
     <string name="language">Ngôn ngữ</string>
     <string name="country">Quốc gia</string>
     <string name="more">Thêm</string>
-    <string name="legal_and_policies">Chính sách pháp lý và điều khoản</string>
+    <string name="legal_and_policies">Chính sách pháp lý</string>
     <string name="help_feedback"><![CDATA[Trợ giúp & Phản hồi]]></string>
     <string name="about_us">Về chúng tôi</string>
     <string name="log_out">Đăng xuất</string>
@@ -76,6 +76,7 @@
     <string name="premium_member">Thành viên Premium</string>
     <string name="clear_cache">Xóa bộ nhớ cache</string>
     <string name="on_date">Vào %1$s</string>
+    <string name="up_coming">Sắp tới</string>
     <string name="top_rated">Xếp hạng cao nhất</string>
     <string name="suggested_languages">Ngôn ngữ được đề xuất</string>
     <string name="logged_out">Đã đăng xuất</string>

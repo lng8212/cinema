@@ -44,39 +44,25 @@
             app:layout_constraintStart_toStartOf="@id/helloTextView"
             app:layout_constraintTop_toBottomOf="@id/helloTextView" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/searchLayout"
-            style="@style/CinemaTextInputLayoutStyle"
-            android:layout_width="match_parent"
+        <TextView
+            android:id="@+id/upcomingTextView"
+            style="@style/text_h4"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="@dimen/_24dp"
-            android:layout_marginTop="@dimen/_32dp"
-            app:endIconMode="clear_text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginStart="@dimen/_24dp"
+            android:layout_marginTop="@dimen/_24dp"
+            android:text="@string/up_coming"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/personImageView"
-            app:startIconDrawable="@drawable/ic_search_24">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/searchEditText"
-                style="@style/CinemaTextInputEditTextStyle"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:hint="@string/search_a_title"
-                android:imeOptions="actionSearch"
-                android:inputType="text" />
-
-        </com.google.android.material.textfield.TextInputLayout>
+            app:layout_constraintTop_toBottomOf="@id/etsStreamTextView" />
 
         <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview
             android:id="@+id/carouselRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="@dimen/_172dp"
-            android:layout_marginTop="@dimen/_24dp"
+            android:layout_marginTop="@dimen/_16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/searchLayout"
+            app:layout_constraintTop_toBottomOf="@+id/upcomingTextView"
             tools:listitem="@layout/item_carousel_movie" />
 
         <TextView

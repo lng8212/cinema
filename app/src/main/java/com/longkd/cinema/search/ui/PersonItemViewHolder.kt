@@ -3,15 +3,15 @@ package com.longkd.cinema.search.ui
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.longkd.cinema.ImagesConfigData
 import com.longkd.cinema.R
 import com.longkd.cinema.databinding.ItemPersonBinding
 import com.longkd.cinema.search.ui.model.PersonItem
-import com.bumptech.glide.Glide
 
 class PersonItemViewHolder(private val binding: ItemPersonBinding) : RecyclerView.ViewHolder(binding.root) {
 
-    fun bind(personItem: PersonItem) {
+    fun bind(personItem: PersonItem, onClickPerson: (Int) -> Unit) {
         with(binding) {
             with(personItem) {
                 val imageUrl =
@@ -23,6 +23,9 @@ class PersonItemViewHolder(private val binding: ItemPersonBinding) : RecyclerVie
                     .into(personImageView)
 
                 nameTextView.text = name
+                itemView.setOnClickListener {
+                    onClickPerson.invoke(personItem.id)
+                }
             }
         }
     }

@@ -28,15 +28,16 @@ class SearchResultFragment : BaseFragment(R.layout.fragment_search_result) {
 
     private val viewModel by viewModels<SearchResultViewModel>()
 
-    private val personItemAdapter = PersonItemAdapter()
+    private val personItemAdapter = PersonItemAdapter {
+        nav(SearchResultFragmentDirections.actionSearchResultFragmentToPersonFragment(it))
+    }
 
     private var searchJob: Job? = null
 
     private val movieBigCardAdapterListener = MovieBigCardItemAdapter.MoviesBigCardAdapterListener { movieBigCardItem ->
-        if (movieBigCardItem.mediaType!="tv"){
+        if (movieBigCardItem.mediaType != "tv") {
             nav(SearchResultFragmentDirections.actionSearchResultFragmentToMovieDetailFragment(movieBigCardItem.id))
-        }
-        else{
+        } else {
             nav(SearchResultFragmentDirections.actionSearchResultFragmentToTvShowDetailFragment(movieBigCardItem.id))
         }
     }

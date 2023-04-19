@@ -1,10 +1,10 @@
 package com.longkd.cinema.moviedetail.ui.movie
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
 import androidx.fragment.app.viewModels
-import androidx.recyclerview.widget.DividerItemDecoration
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.longkd.cinema.ImagesConfigData
@@ -15,12 +15,12 @@ import com.longkd.cinema.core.fragment.ToolbarConfiguration
 import com.longkd.cinema.databinding.FragmentMovieDetailBinding
 import com.longkd.cinema.moviedetail.domain.model.MovieDetail
 import com.longkd.cinema.moviedetail.ui.CastCrewAdapter
-import com.longkd.cinema.utils.ShareDialog
 import com.longkd.cinema.utils.lifecycle.observe
 import com.longkd.cinema.utils.showTextToast
 import com.longkd.cinema.utils.viewbinding.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collectLatest
+
 
 @AndroidEntryPoint
 class MovieDetailFragment : BaseFragment(R.layout.fragment_movie_detail) {
@@ -42,8 +42,6 @@ class MovieDetailFragment : BaseFragment(R.layout.fragment_movie_detail) {
     }
 
     private var isWishListed = false
-
-    private var shareDialog: ShareDialog? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -79,7 +77,14 @@ class MovieDetailFragment : BaseFragment(R.layout.fragment_movie_detail) {
                     with(binding) {
                         customToolbar.setTitle(movieDetail.title)
                         shareButton.setOnClickListener {
-                            showShareDialog()
+                            val sendIntent = Intent()
+                            sendIntent.action = Intent.ACTION_SEND
+                            sendIntent.putExtra(
+                                Intent.EXTRA_TEXT,
+                                movieDetail.title
+                            )
+                            sendIntent.type = "text/plain"
+                            startActivity(sendIntent)
                         }
                         playButton.setOnClickListener {
                             navToMovieTrailerFragment(movieDetail = movieDetail)
@@ -138,10 +143,6 @@ class MovieDetailFragment : BaseFragment(R.layout.fragment_movie_detail) {
         }
     }
 
-    private fun showShareDialog() {
-        shareDialog = ShareDialog(requireActivity())
-        shareDialog?.showDialog()
-    }
 
     private fun navToMovieTrailerFragment(movieDetail: MovieDetail) {
         nav(

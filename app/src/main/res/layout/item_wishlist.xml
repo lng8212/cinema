@@ -43,8 +43,8 @@
             android:layout_width="@dimen/_160dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/_6dp"
-            android:maxLines="2"
             android:ellipsize="end"
+            android:maxLines="2"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@id/genreTextView"
             app:layout_constraintTop_toBottomOf="@id/genreTextView"
@@ -74,21 +74,6 @@
             app:layout_constraintStart_toEndOf="@id/typeTextView"
             app:layout_constraintTop_toTopOf="@id/typeTextView"
             tools:text="4.5" />
-
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/wishlistButton"
-            style="@style/Widget.Material3.Button.IconButton"
-            android:layout_width="@dimen/_32dp"
-            android:layout_height="@dimen/_32dp"
-            android:layout_marginEnd="@dimen/_12dp"
-            android:layout_marginBottom="@dimen/_12dp"
-            app:icon="@drawable/ic_wishlist"
-            app:iconGravity="textEnd"
-            app:iconSize="@dimen/_32dp"
-            app:iconTint="@null"
-           app:layout_constraintTop_toTopOf="@id/typeTextView"
-            app:layout_constraintBottom_toBottomOf="@id/typeTextView"
-            app:layout_constraintEnd_toEndOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

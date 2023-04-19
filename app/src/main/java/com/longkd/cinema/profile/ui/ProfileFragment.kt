@@ -6,12 +6,12 @@ import com.longkd.cinema.R
 import com.longkd.cinema.core.fragment.BaseFragment
 import com.longkd.cinema.core.fragment.FragmentConfiguration
 import com.longkd.cinema.core.fragment.ToolbarConfiguration
-import com.longkd.cinema.databinding.FragmentProfileBinding
 import com.longkd.cinema.utils.showTextToast
 import com.longkd.cinema.utils.viewbinding.viewBinding
 import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.longkd.cinema.databinding.FragmentProfileBinding
 
 class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
 
@@ -20,8 +20,6 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     override val fragmentConfiguration = FragmentConfiguration(toolbarConfiguration)
 
     private val binding by viewBinding(FragmentProfileBinding::bind)
-
-    private var deleteAccountDialog: DeleteAccountDialog? = null
 
     private lateinit var auth: FirebaseAuth
 
@@ -35,19 +33,6 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
         setStartDestinationToIntro()
         nav(ProfileFragmentDirections.actionProfileFragmentToIntroFragment())
 
-    }
-
-    private val deleteAccountListener = DeleteAccountDialog.DeleteAccountListener {
-        showProgressDialog()
-        auth.currentUser?.delete()?.addOnSuccessListener {
-            hideProgressDialog()
-            context?.showTextToast(getString(R.string.account_deleted))
-            setStartDestinationToIntro()
-            nav(ProfileFragmentDirections.actionProfileFragmentToIntroFragment())
-        }?.addOnFailureListener {
-            hideProgressDialog()
-            context?.showTextToast(getString(R.string.please_relogin))
-        }
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -77,9 +62,7 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
             logoutButton.setOnClickListener {
                 showLogoutDialog()
             }
-            deleteMyAccountButton.setOnClickListener {
-                deleteAccountDialog()
-            }
+
             if (!currentUser?.email.isNullOrEmpty()) {
                 emailTextView.text = currentUser?.email
             } else {
@@ -91,11 +74,6 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
                 .centerCrop().placeholder(R.drawable.ic_person_24)
                 .into(personImageView)
         }
-    }
-
-    private fun deleteAccountDialog() {
-        deleteAccountDialog = DeleteAccountDialog(requireActivity(), deleteAccountListener)
-        deleteAccountDialog?.showDialog()
     }
 
     private fun showLogoutDialog() {

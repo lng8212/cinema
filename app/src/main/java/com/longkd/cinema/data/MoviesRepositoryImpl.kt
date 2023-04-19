@@ -80,7 +80,7 @@ class MoviesRepositoryImpl(
                 null
             }
             response?.let { upcomingMoviesResponse ->
-                val movies = upcomingMoviesResponse.results.subList(0, 3).map {
+                val movies = upcomingMoviesResponse.results.subList(0, 7).map {
                     it.mapToMovie()
                 }
                 emit(Resource.Success(data = movies))

@@ -1,5 +1,6 @@
 package com.longkd.cinema.moviedetail.ui.tvshow
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -14,7 +15,6 @@ import com.longkd.cinema.moviedetail.domain.model.MovieDetail
 import com.longkd.cinema.moviedetail.domain.model.TvShowDetail
 import com.longkd.cinema.moviedetail.ui.CastCrewAdapter
 import com.longkd.cinema.profile.settings.SeasonListItem
-import com.longkd.cinema.utils.ShareDialog
 import com.longkd.cinema.utils.lifecycle.observe
 import com.longkd.cinema.utils.showTextToast
 import com.longkd.cinema.utils.viewbinding.viewBinding
@@ -40,12 +40,10 @@ class TvShowDetailFragment : BaseFragment(R.layout.fragment_tv_show_detail) {
     private var isWishListed = false
 
     private val castCrewAdapter = CastCrewAdapter(){
-
+        nav(TvShowDetailFragmentDirections.actionTvShowDetailFragmentToPersonFragment(it))
     }
 
     private val episodesAdapter = EpisodesAdapter()
-
-    private var shareDialog: ShareDialog? = null
 
     private var seasonsDialog: SeasonDialog? = null
 
@@ -95,9 +93,6 @@ class TvShowDetailFragment : BaseFragment(R.layout.fragment_tv_show_detail) {
         binding.customToolbar.configure(toolbarConfiguration)
         hideBottomNavbar()
         with(binding) {
-            shareButton.setOnClickListener {
-                showShareDialog()
-            }
             castCrewRecyclerView.adapter = castCrewAdapter
             episodesRecyclerView.adapter = episodesAdapter
         }
@@ -130,6 +125,16 @@ class TvShowDetailFragment : BaseFragment(R.layout.fragment_tv_show_detail) {
                                 into(backgroundImageView)
                                 into(posterImageView)
                             }
+                        shareButton.setOnClickListener {
+                            val sendIntent = Intent()
+                            sendIntent.action = Intent.ACTION_SEND
+                            sendIntent.putExtra(
+                                Intent.EXTRA_TEXT,
+                                tvShowDetail.name
+                            )
+                            sendIntent.type = "text/plain"
+                            startActivity(sendIntent)
+                        }
                         playButton.setOnClickListener {
                             navToShowTrailerFragment(tvShowDetail = tvShowDetail)
                         }
@@ -181,11 +186,6 @@ class TvShowDetailFragment : BaseFragment(R.layout.fragment_tv_show_detail) {
             viewModel.removeShowFromDatabase()
             context?.showTextToast(getString(R.string.removed_from_wishlist))
         }
-    }
-
-    private fun showShareDialog() {
-        shareDialog = ShareDialog(requireActivity())
-        shareDialog?.showDialog()
     }
 
     private fun initSeasonsDialog() {

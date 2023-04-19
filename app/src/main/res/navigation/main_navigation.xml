@@ -97,6 +97,11 @@
         <action
             android:id="@+id/action_searchResultFragment_to_tvShowDetailFragment"
             app:destination="@id/tvShowDetailFragment" />
+        <action
+            android:id="@+id/action_searchResultFragment_to_personFragment"
+            app:destination="@id/personFragment" />
+
+
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -194,6 +199,9 @@
         <action
             android:id="@+id/action_tvShowDetailFragment_to_movieTrailerFragment"
             app:destination="@id/movieTrailerFragment" />
+        <action
+            android:id="@+id/action_tvShowDetailFragment_to_personFragment"
+            app:destination="@id/personFragment" />
     </fragment>
     <fragment
         android:id="@+id/personFragment"

@@ -12,7 +12,7 @@ data class PersonResponse(
     val place_of_birth: String?,
     val profile_path: String?,
     val adult: Boolean,
-    val imdb_id: String,
+    val imdb_id: String?,
     val homepage: String?
 )
 
@@ -29,7 +29,7 @@ fun PersonResponse.mapToPerson(): Person {
         place_of_birth,
         profile_path,
         adult,
-        imdb_id,
+        imdb_id ?: "",
         homepage
     )
 }

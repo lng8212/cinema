@@ -2,9 +2,7 @@ package com.longkd.cinema.home.ui
 
 import android.os.Bundle
 import android.view.View
-import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
-import androidx.lifecycle.lifecycleScope
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayout
 import com.google.firebase.auth.FirebaseAuth
@@ -15,14 +13,10 @@ import com.longkd.cinema.core.fragment.BaseFragment
 import com.longkd.cinema.core.fragment.FragmentConfiguration
 import com.longkd.cinema.databinding.FragmentHomeBinding
 import com.longkd.cinema.ui.MoviesBasicCardAdapter
-import com.longkd.cinema.utils.QUERY_SEARCH_DELAY
 import com.longkd.cinema.utils.lifecycle.observe
 import com.longkd.cinema.utils.viewbinding.viewBinding
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Job
-import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
-import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
 class HomeFragment : BaseFragment(R.layout.fragment_home) {
@@ -52,8 +46,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
     private val upcomingMoviesCarouselAdapter = MoviesCarouselAdapter(carouselAdapterListener)
 
     private val popularMoviesAdapter = MoviesBasicCardAdapter(popularMoviesAdapterListener)
-
-    private var searchJob: Job? = null
 
     //This variable is used for saving state of selected tab and restore it in onResume()
     private var selectedTabPosition = 0
@@ -92,7 +84,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override fun onResume() {
         super.onResume()
-        binding.searchEditText.text?.clear()
         //To not lose the state of fragment we need to select tab first, then set the listener.
         binding.categoriesTabLayout.selectTab(binding.categoriesTabLayout.getTabAt(selectedTabPosition))
         binding.categoriesTabLayout.addOnTabSelectedListener(onTabSelectedListener)
@@ -127,25 +118,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
             helloTextView.text = getString(R.string.hello_with_comma, currentUser?.displayName ?: "")
 
-            searchEditText.apply {
-                doAfterTextChanged { searchQuery ->
-                    searchQuery?.let {
-                        searchJob?.cancel()
-                        searchJob = lifecycleScope.launch {
-                            delay(QUERY_SEARCH_DELAY)
-                            if (searchQuery.trim().length > 1)
-                                navToSearchResultFragment(searchQuery.toString())
-                        }
-                    }
-                }
-                //For submit button
-                setOnEditorActionListener { textView, _, _ ->
-                    if (textView.text.trim().length > 1) {
-                        navToSearchResultFragment(textView.text.toString())
-                    }
-                    return@setOnEditorActionListener true
-                }
-            }
             GenresData.genres.forEach { genre ->
                 categoriesTabLayout.addTab(categoriesTabLayout.newTab().setText(genre.name))
             }
@@ -172,10 +144,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     private fun navToMovieDetailFragment(movieId: Int) {
         nav(HomeFragmentDirections.actionHomeFragmentToMovieDetailFragment(movieId))
-    }
-
-    private fun navToSearchResultFragment(searchQuery: String) {
-        nav(HomeFragmentDirections.actionHomeFragmentToSearchResultFragment(searchQuery))
     }
 
     private fun navToPopularMoviesFragment() {
