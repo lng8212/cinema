@@ -1,4 +1,4 @@
-package com.longkd.cinema.fcm
+package com.longkd.cinema.notification.fcm
 
 import android.app.NotificationChannel
 import android.app.NotificationManager

@@ -93,4 +93,7 @@
     <string name="your_data_deleted">Your account and data will be deleted.\n Are you sure?</string>
     <string name="account_deleted">Your account has been deleted !</string>
     <string name="please_relogin">Please re-login and try again!</string>
+
+    <string name="title_notification_reminder">Greeting the new day</string>
+    <string name="description_notification_reminder">Check out app with newest film and TV series!</string>
 </resources>

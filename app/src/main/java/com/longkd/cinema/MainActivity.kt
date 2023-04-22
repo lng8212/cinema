@@ -1,8 +1,11 @@
 package com.longkd.cinema
 
+import android.app.NotificationChannel
+import android.app.NotificationManager
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -13,15 +16,16 @@ import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
 import androidx.navigation.fragment.NavHostFragment
+import com.google.firebase.auth.FirebaseAuth
 import com.longkd.cinema.core.fragment.ToolbarConfiguration
 import com.longkd.cinema.customviews.CustomToolbar
 import com.longkd.cinema.databinding.ActivityMainBinding
+import com.longkd.cinema.notification.daily.ReminderManager
 import com.longkd.cinema.utils.ENGLISH
 import com.longkd.cinema.utils.ProgressDialog
 import com.longkd.cinema.utils.navigateSafe
 import com.longkd.cinema.utils.setAppLocale
 import com.longkd.cinema.utils.viewbinding.viewBinding
-import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -41,6 +45,12 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var auth: FirebaseAuth
 
+
+    companion object {
+        const val REMINDER_CHANNEL_NAME = "REMINDER_CHANNEL"
+        const val REMINDER_CHANNEL_ID = "REMINDER_CHANNEL_ID"
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         auth = FirebaseAuth.getInstance()
@@ -59,10 +69,24 @@ class MainActivity : AppCompatActivity() {
         }
         setupNavigation()
         handleOnBoarding()
+        createNotificationsChannels()
+        ReminderManager.startReminder(this)
     }
 
     override fun attachBaseContext(newBase: Context?) {
         super.attachBaseContext(ContextWrapper(newBase?.setAppLocale(currentLanguage)))
+    }
+
+    private fun createNotificationsChannels() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            val channel = NotificationChannel(
+                REMINDER_CHANNEL_ID,
+                REMINDER_CHANNEL_NAME,
+                NotificationManager.IMPORTANCE_HIGH
+            )
+            ContextCompat.getSystemService(this, NotificationManager::class.java)
+                ?.createNotificationChannel(channel)
+        }
     }
 
     private fun handleOnBoarding() {
