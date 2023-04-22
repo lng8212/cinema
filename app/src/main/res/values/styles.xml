@@ -86,6 +86,10 @@
         </item>
     </style>
 
+    <style name="AppSwitch" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorControlActivated">#12CDD9</item>
+    </style>
+
     <style name="roundedImageView_16dp" parent="">
         <item name="cornerFamily">rounded</item>
         <item name="cornerSize">@dimen/_16dp</item>

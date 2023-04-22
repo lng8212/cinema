@@ -2,17 +2,20 @@ package com.longkd.cinema.profile.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.viewModels
+import com.bumptech.glide.Glide
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.longkd.cinema.R
 import com.longkd.cinema.core.fragment.BaseFragment
 import com.longkd.cinema.core.fragment.FragmentConfiguration
 import com.longkd.cinema.core.fragment.ToolbarConfiguration
+import com.longkd.cinema.databinding.FragmentProfileBinding
 import com.longkd.cinema.utils.showTextToast
 import com.longkd.cinema.utils.viewbinding.viewBinding
-import com.bumptech.glide.Glide
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.FirebaseUser
-import com.longkd.cinema.databinding.FragmentProfileBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
 
     private val toolbarConfiguration = ToolbarConfiguration(titleResId = R.string.profile)
@@ -20,6 +23,8 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     override val fragmentConfiguration = FragmentConfiguration(toolbarConfiguration)
 
     private val binding by viewBinding(FragmentProfileBinding::bind)
+
+    private val viewModel by viewModels<ProfileViewModel>()
 
     private lateinit var auth: FirebaseAuth
 
@@ -50,6 +55,14 @@ class ProfileFragment : BaseFragment(R.layout.fragment_profile) {
     private fun initUI() {
         showBottomNavbar()
         with(binding) {
+            swNotification.isChecked = viewModel.getSwitchNotification()
+            notificationButton.setOnClickListener {
+                swNotification.performClick()
+            }
+            swNotification.setOnCheckedChangeListener { _, isCheck ->
+                viewModel.setSwitchNotification(isCheck)
+                viewModel.settingReminder(isCheck, requireContext())
+            }
             legalPoliciesButton.setOnClickListener {
                 nav(ProfileFragmentDirections.actionProfileFragmentToPrivacyPolicyFragment())
             }

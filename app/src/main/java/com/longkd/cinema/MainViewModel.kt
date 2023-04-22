@@ -4,6 +4,7 @@ import android.content.SharedPreferences
 import androidx.lifecycle.viewModelScope
 import com.longkd.cinema.core.BaseViewModel
 import com.longkd.cinema.domain.usecase.SetImagesConfigDataUseCase
+import com.longkd.cinema.profile.ui.ProfileViewModel
 import com.longkd.cinema.ui.onboarding.OnboardingViewModel.Companion.ONBOARDING_KEY
 import com.longkd.cinema.utils.ENGLISH
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,6 +21,10 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             setImagesConfigDataUseCase()
         }
+    }
+
+    fun getSwitchNotification(): Boolean {
+        return sharedPreferences.getBoolean(ProfileViewModel.SWITCH_NOTIFICATION, true)
     }
 
     fun getShouldShowOnBoarding(): Boolean {

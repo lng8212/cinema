@@ -7,6 +7,7 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import androidx.activity.viewModels
@@ -70,7 +71,14 @@ class MainActivity : AppCompatActivity() {
         setupNavigation()
         handleOnBoarding()
         createNotificationsChannels()
-        ReminderManager.startReminder(this)
+        handleNotification()
+    }
+
+    private fun handleNotification() {
+        if (viewModel.getSwitchNotification()) {
+            Log.e("xxxxxx", "handleNotification: here", )
+            ReminderManager.startReminder(this)
+        }
     }
 
     override fun attachBaseContext(newBase: Context?) {

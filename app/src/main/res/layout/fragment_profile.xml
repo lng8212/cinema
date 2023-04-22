@@ -112,17 +112,38 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
-                <com.longkd.cinema.customviews.CustomProfileButton
+                <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/notificationButton"
                     android:layout_width="match_parent"
-                    android:layout_height="@dimen/_72dp"
-
-                    android:drawableEnd="@drawable/ic_arrow_right"
+                    android:layout_height="72dp"
+                    android:gravity="center"
+                    android:orientation="horizontal"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/generalText"
-                    app:startIconDrawable="@drawable/ic_notification"
-                    app:text="@string/notification" />
+                    app:layout_constraintTop_toBottomOf="@id/generalText">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="@dimen/_16dp"
+                        android:src="@drawable/ic_notification" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center_vertical"
+                        android:layout_marginHorizontal="@dimen/_16dp"
+                        android:textColor="@color/white"
+                        android:text="@string/notification" />
+
+                    <androidx.appcompat.widget.SwitchCompat
+                        style="@style/AppSwitch"
+                        android:id="@+id/sw_notification"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_16dp"/>
+                </androidx.appcompat.widget.LinearLayoutCompat>
 
                 <View
                     android:id="@+id/divider1"

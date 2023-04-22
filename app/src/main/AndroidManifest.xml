@@ -30,7 +30,7 @@
             android:configChanges="orientation|screenSize|keyboardHidden|smallestScreenSize|screenLayout"
             android:exported="true"
             android:screenOrientation="portrait"
-            android:theme="@style/Theme.App.SplashScreen"
+            android:theme="@style/Theme.Cinema"
             tools:ignore="LockedOrientationActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
