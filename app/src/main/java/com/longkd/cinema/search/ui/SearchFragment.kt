@@ -1,7 +1,13 @@
 package com.longkd.cinema.search.ui
 
+import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
+import android.speech.RecognizerIntent
 import android.view.View
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -24,6 +30,7 @@ import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
+import java.util.*
 
 @AndroidEntryPoint
 class SearchFragment : BaseFragment(R.layout.fragment_search) {
@@ -32,7 +39,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
     private val binding by viewBinding(FragmentSearchBinding::bind)
 
     private val viewModel by viewModels<SearchFragmentViewModel>()
-
+    private lateinit var startForResult: ActivityResultLauncher<Intent>
     private var searchJob: Job? = null
 
     private val moviesBasicCardAdapterListener =
@@ -43,6 +50,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initResult()
         initUI()
         initObservers()
     }
@@ -52,9 +60,26 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
         binding.searchEditText.text?.clear()
     }
 
+    private fun initResult(){
+        startForResult = registerForActivityResult(
+            ActivityResultContracts.StartActivityForResult()
+        ) { result: ActivityResult ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                if ((binding.searchEditText.text?.trim()?.length ?: 0) > 1)
+                    navToSearchResultFragment(binding.searchEditText.text.toString())
+            }
+        }
+    }
     private fun initUI() {
         showBottomNavbar()
         with(binding) {
+            btnVoice.setOnClickListener {
+                val sttIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
+                sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
+                sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+                sttIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speak))
+                startForResult.launch(sttIntent)
+            }
             GenresData.genres.forEach { genre ->
                 categoriesTabLayout.addTab(categoriesTabLayout.newTab().setText(genre.name))
             }
