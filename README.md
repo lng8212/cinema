@@ -1,9 +1,7 @@
 # Cinema
 App for browsing movies, tv shows, watching trailers.
 
-Supports English and Turkish languages.
-
-You can download Cinema in Google Play Store ! https://play.google.com/store/apps/details?id=com.alibasoglu.Cinema
+Supports English and Vietnamese languages.
 
 ## Used Technologies, Patterns, Libraries
 - Clean Architecture -->  Data -> Domain -> UI and MVVM / Single Activity, Fragment Based Structure
