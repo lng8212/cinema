@@ -26,7 +26,6 @@ Supports English and Vietnamese languages.
 ![pic4](https://user-images.githubusercontent.com/57019129/225884080-dbe1651b-2f2e-4da6-881a-aad123e25973.png)
 ![pic5](https://user-images.githubusercontent.com/57019129/225884087-546b8d8e-6f1b-4d86-8ec6-3e08f762a0be.png)
 ![pic6](https://user-images.githubusercontent.com/57019129/225884090-29d99cf3-22ff-4452-a740-24eac1d385f5.png)
-![pic7](https://user-images.githubusercontent.com/57019129/225884096-60664a63-2741-4eda-9d90-6b2dbe4d4c19.png)
 ![pic8](https://user-images.githubusercontent.com/57019129/225884099-6fdd2345-649c-4440-bcb3-6ce99126adac.png)
 ![pic9](https://user-images.githubusercontent.com/57019129/225884103-a62fcce5-5c0f-4192-8c8a-25f5f5333588.png)
 ![pic10](https://user-images.githubusercontent.com/57019129/225884109-93cc3217-965a-4cf0-9532-ea05d7861a3d.png)
