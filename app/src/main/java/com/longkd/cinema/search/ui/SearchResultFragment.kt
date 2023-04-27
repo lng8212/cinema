@@ -30,6 +30,7 @@ import java.util.*
 @AndroidEntryPoint
 class SearchResultFragment : BaseFragment(R.layout.fragment_search_result) {
     override val fragmentConfiguration = FragmentConfiguration()
+    private var isResumeFromVoice = false
     private lateinit var startForResult: ActivityResultLauncher<Intent>
     private val binding by viewBinding(FragmentSearchResultBinding::bind)
 
@@ -60,17 +61,19 @@ class SearchResultFragment : BaseFragment(R.layout.fragment_search_result) {
 
     override fun onResume() {
         super.onResume()
-        searchJob?.cancel()
+        if (!isResumeFromVoice) searchJob?.cancel()
+        else isResumeFromVoice = false
     }
 
-    private fun initResult(){
+    private fun initResult() {
         startForResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
-                if ((binding.searchEditText.text?.trim()?.length ?: 0) > 1)
-                    viewModel.searchPerson(binding.searchEditText.text.toString())
-                viewModel.searchMovie(binding.searchEditText.text.toString())
+                val res: ArrayList<String> =
+                    result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) as ArrayList<String>
+                binding.searchEditText.setText(Objects.requireNonNull(res)[0])
+                isResumeFromVoice = true
             }
         }
     }
@@ -83,7 +86,7 @@ class SearchResultFragment : BaseFragment(R.layout.fragment_search_result) {
             btnVoice.setOnClickListener {
                 val sttIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
                 sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-                sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+                sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH)
                 sttIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speak))
                 startForResult.launch(sttIntent)
             }

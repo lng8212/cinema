@@ -12,6 +12,8 @@ import androidx.core.widget.doAfterTextChanged
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
 import androidx.paging.PagingData
+import com.bumptech.glide.Glide
+import com.google.android.material.tabs.TabLayout
 import com.longkd.cinema.GenresData
 import com.longkd.cinema.ImagesConfigData
 import com.longkd.cinema.R
@@ -23,8 +25,6 @@ import com.longkd.cinema.ui.MoviesBasicCardAdapter
 import com.longkd.cinema.utils.QUERY_SEARCH_DELAY
 import com.longkd.cinema.utils.lifecycle.observe
 import com.longkd.cinema.utils.viewbinding.viewBinding
-import com.bumptech.glide.Glide
-import com.google.android.material.tabs.TabLayout
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.delay
@@ -35,7 +35,7 @@ import java.util.*
 @AndroidEntryPoint
 class SearchFragment : BaseFragment(R.layout.fragment_search) {
     override val fragmentConfiguration = FragmentConfiguration()
-
+    private var isResumeFromVoice = false
     private val binding by viewBinding(FragmentSearchBinding::bind)
 
     private val viewModel by viewModels<SearchFragmentViewModel>()
@@ -57,26 +57,30 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
 
     override fun onResume() {
         super.onResume()
-        binding.searchEditText.text?.clear()
+        if(!isResumeFromVoice) binding.searchEditText.text?.clear()
+        else isResumeFromVoice = false
     }
 
-    private fun initResult(){
+    private fun initResult() {
         startForResult = registerForActivityResult(
             ActivityResultContracts.StartActivityForResult()
         ) { result: ActivityResult ->
             if (result.resultCode == Activity.RESULT_OK) {
-                if ((binding.searchEditText.text?.trim()?.length ?: 0) > 1)
-                    navToSearchResultFragment(binding.searchEditText.text.toString())
+                val res: ArrayList<String> =
+                    result.data?.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS) as ArrayList<String>
+                binding.searchEditText.setText(Objects.requireNonNull(res)[0])
+                isResumeFromVoice = true
             }
         }
     }
+
     private fun initUI() {
         showBottomNavbar()
         with(binding) {
             btnVoice.setOnClickListener {
                 val sttIntent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH)
                 sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM)
-                sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.getDefault())
+                sttIntent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH)
                 sttIntent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.speak))
                 startForResult.launch(sttIntent)
             }
