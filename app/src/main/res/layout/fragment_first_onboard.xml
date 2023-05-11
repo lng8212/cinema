@@ -17,11 +17,12 @@
     <TextView
         android:id="@+id/titleTextView"
         style="@style/text_h3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/_44dp"
         android:text="@string/the_biggest_streaming"
         android:layout_marginHorizontal="@dimen/_16dp"
+        android:paddingHorizontal="@dimen/_16dp"
         android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
