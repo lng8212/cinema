@@ -12,6 +12,7 @@
     <string name="lets_get_started">Let\'s get started</string>
     <string name="latest_movies_here">The latest movies and series\nare here</string>
     <string name="full_name">Full Name</string>
+    <string name="display_name">Display Name</string>
     <string name="email_address">Email Address</string>
     <string name="password">Password</string>
     <string name="agree_to_terms">I agree to the <font color='#12CDD9'>Terms and Services</font> \nand <font color='#12CDD9'>Privacy Policy</font></string>
@@ -97,4 +98,7 @@
     <string name="title_notification_reminder">Greeting the new day</string>
     <string name="description_notification_reminder">Check out app with newest film and TV series!</string>
     <string name="speak">Speak now!</string>
+    <string name="error_update">An error has occurred!</string>
+    <string name="success">Success!</string>
+    <string name="empty_name">Name is empty !</string>
 </resources>

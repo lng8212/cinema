@@ -16,7 +16,7 @@ class MovieBasicCardItemViewHolder(
     fun bind(movieBasicCardItem: MovieBasicCardItem) {
         with(binding) {
             with(movieBasicCardItem) {
-                val posterUrl = ImagesConfigData.secure_base_url + ImagesConfigData.poster_sizes?.get(1) + imageUrl
+                val posterUrl = ImagesConfigData.secure_base_url + ImagesConfigData.poster_sizes?.get(2) + imageUrl
 
                 titleTextView.text = title
                 genreTextView.text = genre

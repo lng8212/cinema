@@ -158,7 +158,7 @@ class SearchFragment : BaseFragment(R.layout.fragment_search) {
                     else -> getString(R.string.movie)
                 }
                 val imageUrl =
-                    ImagesConfigData.secure_base_url + ImagesConfigData.poster_sizes?.get(1) + movieItem.poster_path
+                    ImagesConfigData.secure_base_url + ImagesConfigData.poster_sizes?.get(2) + movieItem.poster_path
                 binding.todayMovieItem.apply {
                     genreTextView.text = movieItem.genre
                     nameTextView.text = movieItem.title

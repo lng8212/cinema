@@ -96,4 +96,8 @@
     <string name="title_notification_reminder">Chào ngày mới</string>
     <string name="description_notification_reminder">Hãy vào ứng dụng với những bộ phim và truyền hình mới nhất!</string>
     <string name="speak">Nói ngay bây giờ!</string>
+    <string name="error_update">Đã có lỗi xảy ra!</string>
+    <string name="display_name">Tên hiển thị</string>
+    <string name="success">Thành công!</string>
+    <string name="empty_name">Tên đang bị trống !</string>
 </resources>
