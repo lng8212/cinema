@@ -84,7 +84,6 @@ class HomeFragment : BaseFragment(R.layout.fragment_home) {
 
     override fun onResume() {
         super.onResume()
-        //To not lose the state of fragment we need to select tab first, then set the listener.
         binding.categoriesTabLayout.selectTab(binding.categoriesTabLayout.getTabAt(selectedTabPosition))
         binding.categoriesTabLayout.addOnTabSelectedListener(onTabSelectedListener)
     }

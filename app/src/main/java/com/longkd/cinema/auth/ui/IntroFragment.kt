@@ -4,18 +4,17 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.lifecycleScope
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.GoogleAuthProvider
 import com.longkd.cinema.R
 import com.longkd.cinema.core.fragment.BaseFragment
 import com.longkd.cinema.core.fragment.FragmentConfiguration
 import com.longkd.cinema.databinding.FragmentIntroBinding
 import com.longkd.cinema.utils.showTextToast
 import com.longkd.cinema.utils.viewbinding.viewBinding
-import com.google.android.gms.auth.api.signin.GoogleSignIn
-import com.google.android.gms.auth.api.signin.GoogleSignInAccount
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.GoogleAuthProvider
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -64,10 +63,15 @@ class IntroFragment : BaseFragment(R.layout.fragment_intro) {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == REQUEST_CODE_SIGN_IN) {
-            val account = GoogleSignIn.getSignedInAccountFromIntent(data).result
-            account?.let {
-                googleAuthForFirebase(it)
+            try {
+                val account = GoogleSignIn.getSignedInAccountFromIntent(data).result
+                account?.let {
+                    googleAuthForFirebase(it)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
+
         }
     }
 

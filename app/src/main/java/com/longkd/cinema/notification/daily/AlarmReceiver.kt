@@ -11,7 +11,6 @@ import androidx.core.app.NotificationCompat
 import androidx.core.content.ContextCompat
 import com.longkd.cinema.MainActivity
 import com.longkd.cinema.R
-import com.longkd.cinema.notification.fcm.CinemaFirebaseMessagingService.Companion.CHANNEL_ID
 
 class AlarmReceiver  : BroadcastReceiver() {
 
@@ -45,7 +44,7 @@ fun NotificationManager.sendReminderNotification(
         applicationContext,
         555,
         contentIntent,
-        PendingIntent.FLAG_UPDATE_CURRENT
+        PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
     )
     val builder = NotificationCompat.Builder(applicationContext, channelId)
         .setContentTitle(applicationContext.getString(R.string.title_notification_reminder))
